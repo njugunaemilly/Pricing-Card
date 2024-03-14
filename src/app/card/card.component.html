@@ -1,0 +1,48 @@
+<div class="toggle-btn-container">
+  <div class="toggle-container">
+    <h3>Choose a plan</h3>
+    <div class="switch-container">
+      <p>Billed monthly</p>
+      <label class="switch">
+        <input
+          type="checkbox"
+          (ngModelChange)="planTogglee($event)"
+          [(ngModel)]="isToggled"
+        />
+        <span class="slider"></span>
+      </label>
+      <p>Billed annually</p>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <div class="card-container" *ngFor="let price of prices">
+      <div class="pricing-card ">
+        <div class="title">
+          <h3>{{price.product}}</h3>
+        </div>
+        <div class="prices">
+          <h1>{{isToggled ?price.annually:price.monthly}}</h1>
+        </div>
+        <div *ngIf="price.product === 'Pro'">
+          <select id="proOption" [(ngModel)]="price.proOption" name="proOption" placeholder="2500 MAUs">
+            <option value="option1">2500 MAUs</option>
+            <option value="option2"> 5000 MAUs</option>
+            <option value="option2">7500 MAUs</option>
+            <option value="option2">10000 MAUs</option>
+  
+          </select>
+          <small class="select-p">Monthly active users</small>
+        </div>
+        <div class="features">
+          <ul >
+            <li *ngFor="let feature of price.features">{{ feature }}</li>
+          </ul>
+        </div>
+        <div class="btn-plan">
+          <button>Choose Plan</button>
+  
+        </div>     
+    </div>
+  </div>
+  </div>
