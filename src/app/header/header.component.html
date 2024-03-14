@@ -1,0 +1,11 @@
+<div class="header">
+    <p>Your current plan:</p>
+      <h3>Starter Trial &#8226; 500 MUAs</h3>
+      <div *ngIf="selectedPlan">
+        <h3>{{ selectedPlan.product }}</h3>
+        <p>Monthly: {{ selectedPlan.monthly }}</p>
+        <p>Annually: {{ selectedPlan.annually }}</p>
+      </div>
+    </div>
+  
+  
